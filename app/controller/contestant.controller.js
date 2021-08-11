@@ -4,7 +4,7 @@ const contestant = {};
 
 contestant.create = (req, res) => {
   if (!req.body.name) {
-    res.status(400).send({ message: "firstname is required." });
+    res.status(200).send({ message: "firstname is required." });
     return;
   }
 

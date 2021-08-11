@@ -4,12 +4,12 @@ const election = {};
 
 election.create = (req, res) => {
   if (!req.body.title) {
-    res.status(400).send({ message: "Title is required." });
+    res.status(200).send({ message: "Title is required." });
     return;
   }
 
   if (!req.body.election_date) {
-    res.status(400).send({ message: "Election date is required." });
+    res.status(200).send({ message: "Election date is required." });
     return;
   }
 
@@ -21,17 +21,16 @@ election.create = (req, res) => {
 
   Election.create(election)
     .then((election) => {
-      console.log(req.body.contestant);
-      req.body.contestant.forEach((cont) => {
-        let input = {
-          election_id: election.id,
-          name: cont
-        };
+      // req.body.contestant.forEach((cont) => {
+      //   let input = {
+      //     election_id: election.id,
+      //     name: cont,
+      //   };
 
-        model.contestant.create(input).then((contestant) => {
-          console.log("contestant created Successfully");
-        });
-      });
+      //   model.contestant.create(input).then((contestant) => {
+      //     console.log("contestant created Successfully");
+      //   });
+      // });
       res.json(election);
     })
     .catch((err) => {

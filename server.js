@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "*",
 };
 
 app.use(cors(corsOptions));
@@ -30,7 +30,6 @@ db.sequelize
   .catch((err) => {
     console.log("Unable to connect to the database: " + err);
   });
-
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
